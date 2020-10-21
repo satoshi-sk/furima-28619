@@ -3,57 +3,47 @@
 
 ## users テーブル
 
-| Column   | Type     | Option      |
-| -------- | -------- | ----------- |
-| name     | string   | null: false |
-| email    | string   | null: false |
-| password | string   | null: false |
-| nickname | string   | null: false |
-| birthday | datetime | null: false |
+| Column   | Type   | Option      |
+| -------- | -----  | ----------- |
+| name     | string | null: false |
+| email    | string | null: false |
+| password | string | null: false |
 
 ## Association
 
 - has_many :items
-- has_many :buys
+- has_many :buy
 
 ## items テーブル
 
-| Column            | Type       | Option                         |
-| ----------------- | ---------- | ------------------------------ |
-| text              | text       | null: false                    |
-| price             | integer    | null: false                    |
-| user              | references | null: false, foreign_key: true |
-| category          | string     | null: false                    |
-| product_name      | string     | null: false                    |
-| product_condition | string     | null: false                    |
-| shipping_price    | string     | null: false                    |
-| ship_form         | string     | null: false                    |
-| shipping_date     | datetime   | nill: false                    |
+| Column  | Type    | Option      |
+| ------- | ------- | ----------- |
+| image   | string  | null: false |
+| text    | text    | null: false |
+| price   | integer | null: false |
+| user_id | string  | null: false |
+| category| string  | null: false |
 
 ## Association
 
-- belongs_to :user
-- has_one :buy
+-belongs_to :users
 
-## buys テーブル
+## buy テーブル
 
-| Column           | Type    | Option                            |
-| ---------------- | ------- | --------------------------------- |
-| user             | references | null: false, foreign_key: true |
-| item             | references | null: false, foreign_key: true |
+| Column           | Type    | Option      |
+| ---------------- | ------- | null: false |
+| card_number      | integer | null: false |
 
 ## Association
 
-- belongs_to :user
-- belongs_to :item
+- belongs_to :users
 - has_one :shipping_address
 
-## shipping_addresses テーブル
+## shipping_address テーブル
 
-| Column       | Type    | Option      |
-| ------------ | ------- | ----------- |
-| address      | string  | null: false |
-| phone_number | integer | null: false |
+| Column  | Type   | Option      |
+| ------- | ------ | ----------- |
+| address | string | null: false |
 
 ## Association
 
