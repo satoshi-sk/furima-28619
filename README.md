@@ -22,17 +22,17 @@
 
 ## items テーブル
 
-| Column            | Type       | Option      |
-| ----------------- | ---------- | ----------- |
-| product_name      | string     | null: false |
-| text              | text       | null: false |
-| user              | string     | null: false |
-| category          | integer    | null: false |
-| product_condition | integer    | null: false |
-| shipping_price    | integer    | null: false |
-| ship_form         | integer    | null: false |
-| shipping_date     | integer    | nill: false |
-| price             | integer    | null: false |
+| Column            | Type       | Option                         |
+| ----------------- | ---------- | ------------------------------ |
+| product_name      | string     | null: false                    |
+| text              | text       | null: false                    |
+| user              | references | null: false, foreign_key: true |
+| category          | integer    | null: false                    |
+| product_condition | integer    | null: false                    |
+| shipping_price    | integer    | null: false                    |
+| ship_form         | integer    | null: false                    |
+| shipping_date     | integer    | nill: false                    |
+| price             | integer    | null: false                    |
 
 ## Association
 
@@ -54,10 +54,14 @@
 
 ## shipping_addresses テーブル
 
-| Column       | Type    | Option      |
-| ------------ | ------- | ----------- |
-| address      | string  | null: false |
-| phone_number | integer | null: false |
+| Column        | Type    | Option      |
+| ------------- | ------- | ----------- |
+| post_code     | integer | null: false |
+| prefectures   | integer | null: false |
+| city          | string  | null: false |
+| block_number  | string  | null: false |
+| building_name | string  |             |
+| phone_number  | integer | null: false |
 
 ## Association
 
