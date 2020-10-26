@@ -3,13 +3,17 @@
 
 ## users テーブル
 
-| Column   | Type     | Option      |
-| -------- | -------- | ----------- |
-| name     | string   | null: false |
-| email    | string   | null: false |
-| password | string   | null: false |
-| nickname | string   | null: false |
-| birthday | datetime | null: false |
+| Column           | Type     | Option      |
+| ---------------- | -------- | ----------- |
+| nickname         | string   | null: false |
+| email            | string   | null: false |
+| password         | string   | null: false |
+| confirm_password | string   | null: false |
+| last_name        | string   | null: false |
+| first_name       | string   | null: false |
+| last_name_kana   | string   | null: false |
+| first_name_kana  | string   | null: false |
+| birthday         | datetime | null: false |
 
 ## Association
 
@@ -18,17 +22,17 @@
 
 ## items テーブル
 
-| Column            | Type       | Option                         |
-| ----------------- | ---------- | ------------------------------ |
-| text              | text       | null: false                    |
-| price             | integer    | null: false                    |
-| user              | references | null: false, foreign_key: true |
-| category          | string     | null: false                    |
-| product_name      | string     | null: false                    |
-| product_condition | string     | null: false                    |
-| shipping_price    | string     | null: false                    |
-| ship_form         | string     | null: false                    |
-| shipping_date     | datetime   | nill: false                    |
+| Column            | Type       | Option      |
+| ----------------- | ---------- | ----------- |
+| product_name      | string     | null: false |
+| text              | text       | null: false |
+| user              | string     | null: false |
+| category          | integer    | null: false |
+| product_condition | integer    | null: false |
+| shipping_price    | integer    | null: false |
+| ship_form         | integer    | null: false |
+| shipping_date     | integer    | nill: false |
+| price             | integer    | null: false |
 
 ## Association
 
@@ -38,7 +42,7 @@
 ## buys テーブル
 
 | Column           | Type    | Option                            |
-| ---------------- | ------- | --------------------------------- |
+| ---------------- | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
 | item             | references | null: false, foreign_key: true |
 
