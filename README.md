@@ -12,7 +12,7 @@
 | first_name         | string   | null: false |
 | last_name_kana     | string   | null: false |
 | first_name_kana    | string   | null: false |
-| birthday           | datetime | null: false |
+| birthday           | date     | null: false |
 
 ## Association
 
@@ -21,17 +21,17 @@
 
 ## items テーブル
 
-| Column               | Type       | Option                         |
-| -------------------- | ---------- | ------------------------------ |
-| product_name         | string     | null: false                    |
-| text                 | text       | null: false                    |
-| user                 | references | null: false, foreign_key: true |
-| category_id          | integer    | null: false                    |
-| product_condition_id | integer    | null: false                    |
-| shipping_price_id    | integer    | null: false                    |
-| ship_form_id         | integer    | null: false                    |
-| shipping_date_id     | integer    | nill: false                    |
-| price                | integer    | null: false                    |
+| Column                | Type       | Option                         |
+| --------------------- | ---------- | ------------------------------ |
+| product_name          | string     | null: false                    |
+| text                  | text       | null: false                    |
+| user                  | references | null: false, foreign_key: true |
+| category_id           | integer    | null: false                    |
+| product_condition_id  | integer    | null: false                    |
+| shipping_price_id     | integer    | null: false                    |
+| prefecture_id         | integer    | null: false                    |
+| shipping_date_id      | integer    | nill: false                    |
+| price                 | integer    | null: false                    |
 
 ## Association
 
@@ -40,7 +40,7 @@
 
 ## buys テーブル
 
-| Column           | Type    | Option                            |
+| Column           | Type       | Option                         |
 | ---------------- | ---------- | ------------------------------ |
 | user             | references | null: false, foreign_key: true |
 | item             | references | null: false, foreign_key: true |
@@ -53,14 +53,16 @@
 
 ## shipping_addresses テーブル
 
-| Column        | Type    | Option      |
-| ------------- | ------- | ----------- |
-| post_code     | string  | null: false |
-| prefectures   | integer | null: false |
-| city          | string  | null: false |
-| block_number  | string  | null: false |
-| building_name | string  |             |
-| phone_number  | string  | null: false |
+| Column          | Type       | Option                         |
+| --------------- | ---------- | ------------------------------ |
+| post_code       | string     | null: false                    |
+| prefecture_id   | integer    | null: false                    |
+| city            | string     | null: false                    |
+| block_number    | string     | null: false                    |
+| building_name   | string     |                                |
+| phone_number    | string     | null: false                    |
+| user            | references | null: false, foreign_key: true |
+| item            | references | null: false, foreign_key: true |
 
 ## Association
 
