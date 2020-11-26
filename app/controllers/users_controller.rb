@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  private
+
   def move_to_index
     redirect_to action: :index unless user_signed_in?
   end
