@@ -17,10 +17,10 @@ class Item < ApplicationRecord
   validates :shipping_price_id, presence: true
   validates :prefecture_id, presence: true
   validates :shipping_date_id, presence: true
+  validates :price, presence: true
+  validates :price, inclusion: { in: 300..9999999 }
+  validates :price, format: { with: /\A[0-9]+\z/ }
 
-with_options presence: true, format: { with: /\A[0-9]+\z/, message: 'half-width numbers' } do
-    validates :price, presence: true
-  end
 
   with_options numericality: { other_than: 1 } do
     validates :category_id
