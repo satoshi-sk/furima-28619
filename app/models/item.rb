@@ -9,15 +9,18 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :shipping_date
 
-  validates :image, presence: true
-  validates :product_name, presence: true
-  validates :text, presence: true
-  validates :category_id, presence: true
-  validates :product_condition_id, presence: true
-  validates :shipping_price_id, presence: true
-  validates :prefecture_id, presence: true
-  validates :shipping_date_id, presence: true
-  validates :price, presence: true
+  with_options presence: true do
+    validates :image
+    validates :product_name
+    validates :text
+    validates :category_id
+    validates :product_condition_id
+    validates :shipping_price_id
+    validates :prefecture_id
+    validates :shipping_date_id
+    validates :price
+  end
+
   validates :price, inclusion: { in: 300..9_999_999 }
   validates :price, format: { with: /\A[0-9]+\z/ }
 
