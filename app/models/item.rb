@@ -18,9 +18,8 @@ class Item < ApplicationRecord
   validates :prefecture_id, presence: true
   validates :shipping_date_id, presence: true
   validates :price, presence: true
-  validates :price, inclusion: { in: 300..9999999 }
+  validates :price, inclusion: { in: 300..9_999_999 }
   validates :price, format: { with: /\A[0-9]+\z/ }
-
 
   with_options numericality: { other_than: 1 } do
     validates :category_id
