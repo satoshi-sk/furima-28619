@@ -29,10 +29,12 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update(item_params)
-      redirect_to item_path
-    else
-      render :edit
+    if user_signed_in?
+      if @item.update(item_params)
+        redirect_to item_path
+      else
+        render :edit
+      end
     end
   end
 
