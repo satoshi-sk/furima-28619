@@ -7,7 +7,7 @@ class UserItem
     validates :post_code, format: {with: /\A\d{3}[-]\d{4}\z/}
     validates :city
     validates :block_number
-    validates :phone_number, format: {with: /\A\d{11}\z/}
+    validates :phone_number, format: {with: /\A\d{10,11}\z/}
   end
   validates :prefecture_id, numericality: { other_than: 1 }
 
