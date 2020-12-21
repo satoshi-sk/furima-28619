@@ -3,7 +3,7 @@ class UserItem
   attr_accessor :token, :item_id, :user_id, :post_code, :prefecture_id, :city, :block_number, :building_name, :phone_number, :order_id
 
   with_options presence: true do
-    #validates :token
+    validates :token
     validates :post_code, format: {with: /\A\d{3}[-]\d{4}\z/}
     validates :city
     validates :block_number
