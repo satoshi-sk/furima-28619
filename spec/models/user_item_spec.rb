@@ -55,4 +55,19 @@ RSpec.describe UserItem, type: :model do
       expect(@user_item.errors.full_messages).to include("Phone number is invalid")
     end
   end
+
+  describe 'カード情報の保存' do
+    before do
+      @user_item = FactoryBot.build(:user_item)
+    end
+
+    it "tokenがあれば保存できること" do
+      expect(@user_item).to be_valid
+    end
+    it "tokenが空では保存できないこと" do
+      @user_item.token = nil
+      @user_item.valid?
+      expect(@user_item.errors.full_messages).to include("Token can't be blank")
+    end
+  end
 end
