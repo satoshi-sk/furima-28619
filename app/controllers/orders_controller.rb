@@ -1,16 +1,9 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, only: [:index]
   before_action :set_item, only: [:index, :create]
   before_action :sold_out_item, only: [:index]
 
   def index
-    if user_signed_in?
-    else
-      redirect_to user_session_path
-    end
-
-    redirect_to root_path if user_signed_in? && current_user.id == @item.user_id
-
     @order = UserItem.new
   end
 
