@@ -4,9 +4,10 @@ class OrdersController < ApplicationController
   before_action :sold_out_item, only: [:index]
 
   def index
+    redirect_to root_path if user_signed_in? && current_user.id == @item.user_id
     @order = UserItem.new
   end
-
+  
   def create
     @order = UserItem.new(order_params)
     if @order.valid?
